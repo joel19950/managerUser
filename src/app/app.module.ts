@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { NoFoundComponent } from './components/no-found/no-found.component';
 import { DetailUserComponent } from './components/detail-user/detail-user.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DetailUserComponent } from './components/detail-user/detail-user.compon
     DetailUserComponent
   ],
   imports: [
+    SharedModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
