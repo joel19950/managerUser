@@ -1,0 +1,74 @@
+<!-- Body: Body -->
+<div class="body d-flex py-3">
+    <div class="container-xxl">
+        <div class="row align-items-center">
+            <div class="border-0 mb-4">
+                <div
+                    class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                    <h3 class="fw-bold mb-0">Listes des Candidats</h3>
+                </div>
+            </div>
+        </div> <!-- Row end  -->
+        <div class="row mb-3">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <ng-container *ngIf="users$ | async as result" [ngSwitch]="result.dataState">
+
+                        <table id="patient-table" class="table table-hover align-middle mb-0" style="width: 100%;"
+                            *ngIf="users$ | async as result" [ngSwitch]="result.dataState">
+                            <ng-container>
+                                <thead>
+                                    <tr>
+                                        <th>Icon</th>
+                                        <th>Code</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>ville</th>
+                                        <th>Quantité</th>
+                                        <th>Action</th>
+                                        <th>Sexe</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of result.data,let i=index">
+                                        <td><img src="../assets/images/xs/user1.png" class="avatar  rounded-circle me-2"
+                                                alt="profile-image"><span> CMR </span></td>
+                                        <td>{{user.participation_code}} </td>
+                                        <td>{{user.name}}</td>
+                                        <td>{{user.surname}}</td>
+                                        <td>{{user.city}}</td>
+                                        <td>{{user.quantity}}</td>
+                                        <td>
+                                            <a href="#" (click)="deleteUser(user)"> <span class="badge bg-danger"> <i
+                                                        class="fa fa-trash"></i> </span></a> &nbsp;
+                                            <a  (click)="showUserDetail(user)" ><span class="badge bg-primary"><i class="fa fa-eye"> </i>
+                                                </span> </a>
+                                            <!-- <div class="progress" style="height: 3px;">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
+                    </div> -->
+                                        </td>
+                                        <td> <a href="#"></a> <span class="badge bg-info">Admin</span></td>
+                                    </tr>
+                                </tbody>
+
+                            </ng-container>
+                        </table>
+
+                    </ng-container>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
