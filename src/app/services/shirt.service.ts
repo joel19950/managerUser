@@ -13,7 +13,7 @@ type EntityArrayResponseType = HttpResponse<IShirts[]>;
 })
 export class ShirtService {
 
-  public resourceUrl = environment.host + 'api/users';
+  public resourceUrl = environment.host + 'api/shirts';
 
   constructor(protected http: HttpClient) {}
 
